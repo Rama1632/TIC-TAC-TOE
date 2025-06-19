@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #ffd700;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #83a4d4, #b6fbff);
+  border-radius: 15px;
+  font-size: 2.5em;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cell:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00ffe5;
+}
+
+.cell.win {
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  color: white;
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px #fff; }
+  to { box-shadow: 0 0 20px #ff0080; }
+}
+
+.status {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  animation: fadeIn 1s;
+}
+
+button {
+  padding: 10px 25px;
+  font-size: 1em;
+  background: #00ffe5;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background: #00ccbb;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    grid-gap: 10px;
+  }
+
+  .cell {
+    width: 80px;
+    height: 80px;
+    font-size: 2em;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .status {
+    font-size: 1.2em;
+  }
+
+  button {
+    font-size: 0.9em;
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .board {
+    grid-template-columns: repeat(3, 60px);
+    grid-gap: 8px;
+  }
+
+  .cell {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .status {
+    font-size: 1em;
+  }
+
+  button {
+    font-size: 0.8em;
+    padding: 7px 16px;
+  }
+}
